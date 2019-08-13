@@ -57,19 +57,7 @@ public class Solution
     public int minimumDistance(int numRows, int numColumns, List<List<Integer>> area)
     {
         visited = new boolean[numRows][numColumns];
-        int minDistance = 0;
-        for (int i=0; i<numRows; i++) {
-            for (int j=0; j<numColumns; j++) {
-                if (area.get(i).get(j) == 9) {
-                    return minDistance;
-                }
-                if (!visited[i][j] && area.get(i).get(j) == 1) {
-                    minDistance = minimumDistance(i, j, area, minDistance);
-                }
-            }
-        }
-
-        return minDistance;
+        return minimumDistance(0, 0, area, 0);
     }
 
     private int minimumDistance(int i, int j, List<List<Integer>> area, int minDistance) {
